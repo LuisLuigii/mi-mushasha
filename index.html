@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Mi Mushasha 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f6f8fc;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .left {
+      flex: 2;
+      padding: 32px 24px 16px 32px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .music-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      justify-content: flex-start;
+    }
+    .music-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #7ecbff 60%, #ffb6e6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6em;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(127, 193, 255, 0.15);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .photo {
+      background: linear-gradient(135deg, #e3f0ff 60%, #ffe3f7 100%);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(255,182,230,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1em;
+      color: #888;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 16px rgba(127, 193, 255, 0.18);
+    }
+    .notes-section {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .note {
+      background: linear-gradient(135deg, #7ecbff 60%, #ffb6e6 100%);
+      color: #fff;
+      border-radius: 16px;
+      min-width: 180px;
+      max-width: 220px;
+      padding: 12px 16px 12px 48px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(127, 193, 255, 0.10);
+      transition: box-shadow 0.2s;
+      margin-bottom: 8px;
+    }
+    .note .gerbera {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .note .gerbera:hover {
+      transform: translateY(-50%) scale(1.15);
+    }
+    .note-content {
+      display: none;
+      margin-top: 8px;
+      color: #fff;
+      font-size: 0.98em;
+      line-height: 1.4;
+    }
+    .note.open .note-content {
+      display: block;
+      animation: fadeIn 0.4s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .right {
+      flex: 1.2;
+      background: #ffe3f7;
+      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 320px;
+    }
+    .letter {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px rgba(255,182,230,0.10);
+      padding: 32px 24px;
+      font-family: 'Dancing Script', cursive, Arial, sans-serif;
+      font-size: 1.2em;
+      color: #e75480;
+      max-width: 340px;
+      text-align: left;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .right {
+        min-width: 0;
+        padding: 24px 16px;
+      }
+      .left {
+        padding: 24px 16px 8px 16px;
+      }
+    }
+  </style>
+  <!-- Fuente romántica para la carta -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="music-buttons">
+        <button class="music-btn" onclick="playMusic('song1.mp3')" title="Canción 1">🎵</button>
+        <button class="music-btn" onclick="playMusic('song2.mp3')" title="Canción 2">💖</button>
+        <button class="music-btn" onclick="playMusic('song3.mp3')" title="Canción 3">🌸</button>
+      </div>
+      <div class="gallery">
+        <div class="photo">Foto 1</div>
+        <div class="photo">Foto 2</div>
+        <div class="photo">Foto 3</div>
+        <div class="photo">Foto 4</div>
+        <div class="photo">Foto 5</div>
+        <div class="photo">Foto 6</div>
+        <div class="photo">Foto 7</div>
+        <div class="photo">Foto 8</div>
+        <div class="photo">Foto 9</div>
+      </div>
+      <div class="notes-section">
+        <div class="note" onclick="toggleNote(this)">
+          <img class="gerbera" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gerbera_2.jpg" alt="Gerbera">
+          <span>Comida favorita</span>
+          <div class="note-content">Pizza, sushi y helado de fresa 🍕🍣🍦</div>
+        </div>
+        <div class="note" onclick="toggleNote(this)">
+          <img class="gerbera" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gerbera_2.jpg" alt="Gerbera">
+          <span>Película favorita</span>
+          <div class="note-content">Orgullo y Prejuicio 💕</div>
+        </div>
+        <div class="note" onclick="toggleNote(this)">
+          <img class="gerbera" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gerbera_2.jpg" alt="Gerbera">
+          <span>Color favorito</span>
+          <div class="note-content">Rosa pastel y azul cielo 🌸💙</div>
+        </div>
+        <div class="note" onclick="toggleNote(this)">
+          <img class="gerbera" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gerbera_2.jpg" alt="Gerbera">
+          <span>Frase especial</span>
+          <div class="note-content">"Eres mi lugar favorito" ✨</div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="letter">
+        Querida [nombre],<br><br>
+        Gracias por llenar mi vida de alegría y amor. Cada momento contigo es un tesoro y cada sonrisa tuya ilumina mi mundo. Espero que esta página te recuerde lo especial que eres para mí.<br><br>
+        Te amo mucho, <br>
+        [Tu nombre]
+      </div>
+    </div>
+  </div>
+  <!-- Audio player oculto -->
+  <audio id="audio-player" style="display:none;"></audio>
+  <script>
+    // Cambia los nombres de los archivos por tus canciones favoritas
+    function playMusic(song) {
+      var player = document.getElementById('audio-player');
+      player.src = song; // Debes subir tus canciones a la web o usar links directos
+      player.play();
+    }
+    // Notas desplegables
+    function toggleNote(note) {
+      note.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
