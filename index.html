@@ -12,60 +12,39 @@
       color: #333;
     }
     .container {
-  display: flex;
-  flex-direction: row;
-  max-width: 900px;
-  margin: 40px auto;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  overflow: hidden;
-  align-items: stretch;
-  height: 90vh;
-  min-height: 500px;
-}
-.left {
-  flex: 1.2;
-  max-width: 400px;
-  min-width: 0;
-  padding: 32px 24px 16px 32px;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-.right {
-  flex: 1;
-  min-width: 220px;
-  background: #ffe3f7;
-  padding: 40px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: auto;
-}
-.gallery, .notes-section {
-  max-width: 340px;
-  margin: 0 auto 24px auto;
-}
-    
-.left, .right {
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px; 
-  max-width: 340px;
-  margin: 0 auto 24px auto;
-  padding: 16px;      
-}
-.notes-section {
-  max-width: 340px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
+      display: flex;
+      flex-direction: row;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+      align-items: stretch;
+      min-height: 500px;
+      height: 90vh;
+    }
+    .left {
+      flex: 1.2;
+      max-width: 400px;
+      min-width: 0;
+      padding: 32px 24px 16px 32px;
+      display: flex;
+      flex-direction: column;
+      max-height: 100vh;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .right {
+      flex: 1;
+      min-width: 220px;
+      background: #ffe3f7;
+      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
     .music-buttons {
       display: flex;
       gap: 16px;
@@ -90,8 +69,14 @@
     .music-btn:hover {
       transform: scale(1.1);
     }
-    
-    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px; 
+      max-width: 340px;
+      margin: 0 auto 24px auto;
+      padding: 16px;      
+    }
     .photo {
       background: linear-gradient(135deg, #e3f0ff 60%, #ffe3f7 100%);
       border-radius: 16px;
@@ -117,6 +102,13 @@
     .photo:hover {
       transform: scale(1.04);
       box-shadow: 0 4px 16px rgba(127, 193, 255, 0.18);
+    }
+    .notes-section {
+      max-width: 340px;
+      margin: 0 auto;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
     .note {
       background: linear-gradient(135deg, #7ecbff 60%, #ffb6e6 100%);
@@ -159,7 +151,6 @@
       from { opacity: 0; transform: translateY(-10px);}
       to { opacity: 1; transform: translateY(0);}
     }
-    
     .letter {
       background: #fff;
       border-radius: 20px;
@@ -175,6 +166,8 @@
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
+        height: auto;
+        min-height: 0;
       }
       .right {
         min-width: 0;
@@ -182,12 +175,13 @@
       }
       .left {
         padding: 24px 16px 8px 16px;
+        max-height: none;
+        overflow-y: visible;
       }
     }
-
     @media (max-width: 700px) {
       .gallery {
-       grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }    
     }
     @media (max-width: 500px) {
@@ -195,9 +189,6 @@
         grid-template-columns: 1fr;
       }
     }
-
-    
-}
   </style>
   <!-- Fuente romántica para la carta -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -222,65 +213,64 @@
         <div class="photo"><img src="img/mimujer9.jpeg" alt="Foto 9"></div>
       </div>
       <div class="notes-section">
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Música</span>
-    <div class="note-content">
-      Innerbloom - Rufus<br>
-      Mystery of Love - Call me by your name<br>
-      Sus cantantes favoritos: Sabino, Ivan Cornejo y 2Pac
-    </div>
-  </div>
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Cumpleaños</span>
-    <div class="note-content">
-      5 de Septiembre del 2006
-    </div>
-  </div>
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Deportes</span>
-    <div class="note-content">
-      NFL (Los Cowboys es su equipo favorito)<br>
-      NBA (Lamelo Ball es su jugador favorito)
-    </div>
-  </div>
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Cine y películas</span>
-    <div class="note-content">
-      Género: Terror<br>
-      Película favorita: Interestelar<br>
-      Película favorita de Marvel: Iron Man (Tony Stark)<br>
-      Película favorita en la infancia: Cenicienta<br>
-      Serie favorita: Pose
-    </div>
-  </div>
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Flores favoritas</span>
-    <div class="note-content">
-      Gerberas
-    </div>
-  </div>
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Anime</span>
-    <div class="note-content">
-      Jujutsu Kaisen<br>
-      Anohana
-    </div>
-  </div>
-  <div class="note">
-    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
-    <span>Comida</span>
-    <div class="note-content">
-      Le gusta el pan espejo con café y el huevo a la mexicana.<br>
-      Los hokeis también jiji
-    </div>
-  </div>
-</div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Música</span>
+          <div class="note-content">
+            Innerbloom - Rufus<br>
+            Mystery of Love - Call me by your name<br>
+            Sus cantantes favoritos: Sabino, Ivan Cornejo y 2Pac
+          </div>
+        </div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Cumpleaños</span>
+          <div class="note-content">
+            5 de Septiembre del 2006
+          </div>
+        </div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Deportes</span>
+          <div class="note-content">
+            NFL (Los Cowboys es su equipo favorito)<br>
+            NBA (Lamelo Ball es su jugador favorito)
+          </div>
+        </div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Cine y películas</span>
+          <div class="note-content">
+            Género: Terror<br>
+            Película favorita: Interestelar<br>
+            Película favorita de Marvel: Iron Man (Tony Stark)<br>
+            Película favorita en la infancia: Cenicienta<br>
+            Serie favorita: Pose
+          </div>
+        </div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Flores favoritas</span>
+          <div class="note-content">
+            Gerberas
+          </div>
+        </div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Anime</span>
+          <div class="note-content">
+            Jujutsu Kaisen<br>
+            Anohana
+          </div>
+        </div>
+        <div class="note">
+          <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+          <span>Comida</span>
+          <div class="note-content">
+            Le gusta el pan espejo con café y el huevo a la mexicana.<br>
+            Los hokeis también jiji
+          </div>
+        </div>
       </div>
     </div>
     <div class="right">
@@ -295,13 +285,11 @@
   <!-- Audio player oculto -->
   <audio id="audio-player" style="display:none;"></audio>
   <script>
-    // Cambia los nombres de los archivos por tus canciones favoritas
     function playMusic(song) {
       var player = document.getElementById('audio-player');
-      player.src = song; // Debes subir tus canciones a la web o usar links directos
+      player.src = song;
       player.play();
     }
-    // Notas desplegables
     function toggleNote(img) {
       img.parentElement.classList.toggle('open');
     }
