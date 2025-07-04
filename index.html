@@ -177,6 +177,31 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; 
+  max-width: 480px; /* Ajusta este valor según el tamaño que quieras */
+  margin: 0 auto 24px auto;
+  padding: 16px;      
+}
+.left {
+  flex: 1.5;
+  padding: 32px 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.right {
+  flex: 1;
+  background: #ffe3f7;
+  padding: 40px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+}
   </style>
   <!-- Fuente romántica para la carta -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
