@@ -11,7 +11,6 @@
       background: #f6f8fc;
       color: #333;
     }
-    
     .container {
   display: flex;
   flex-direction: row;
@@ -22,11 +21,8 @@
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   overflow: hidden;
   align-items: stretch;
-  min-height: 100vh;
-}
-.left, .right {
-  height: 100%;
-  box-sizing: border-box;
+  height: 90vh;
+  min-height: 500px;
 }
 .left {
   flex: 1.2;
@@ -35,6 +31,7 @@
   padding: 32px 24px 16px 32px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 .right {
   flex: 1;
@@ -44,7 +41,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 }
+.gallery, .notes-section {
+  max-width: 340px;
+  margin: 0 auto 24px auto;
+}
+    
+.left, .right {
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
