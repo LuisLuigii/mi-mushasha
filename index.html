@@ -166,6 +166,17 @@
         padding: 24px 16px 8px 16px;
       }
     }
+
+    @media (max-width: 700px) {
+      .gallery {
+       grid-template-columns: repeat(2, 1fr);
+      }    
+    }
+    @media (max-width: 500px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   <!-- Fuente romántica para la carta -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -190,26 +201,65 @@
         <div class="photo"><img src="img/mimujer9.jpeg" alt="Foto 9"></div>
       </div>
       <div class="notes-section">
-        <div class="note" onclick="toggleNote(this)">
-          <img class="gerbera" src="img/3.png" alt="Gerbera">
-          <span>Comida favorita</span>
-          <div class="note-content">Pizza, sushi y helado de fresa 🍕🍣🍦</div>
-        </div>
-        <div class="note" onclick="toggleNote(this)">
-          <img class="gerbera" src="img/3.png" alt="Gerbera">
-          <span>Película favorita</span>
-          <div class="note-content">Orgullo y Prejuicio 💕</div>
-        </div>
-        <div class="note" onclick="toggleNote(this)">
-          <img class="gerbera" src="img/3.png" alt="Gerbera">
-          <span>Color favorito</span>
-          <div class="note-content">Rosa pastel y azul cielo 🌸💙</div>
-        </div>
-        <div class="note" onclick="toggleNote(this)">
-          <img class="gerbera" src="img/3.png" alt="Gerbera">
-          <span>Frase especial</span>
-          <div class="note-content">"Eres mi lugar favorito" ✨</div>
-        </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Música</span>
+    <div class="note-content">
+      Innerbloom - Rufus<br>
+      Mystery of Love - Call me by your name<br>
+      Sus cantantes favoritos: Sabino, Ivan Cornejo y 2Pac
+    </div>
+  </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Cumpleaños</span>
+    <div class="note-content">
+      5 de Septiembre del 2006
+    </div>
+  </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Deportes</span>
+    <div class="note-content">
+      NFL (Los Cowboys es su equipo favorito)<br>
+      NBA (Lamelo Ball es su jugador favorito)
+    </div>
+  </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Cine y películas</span>
+    <div class="note-content">
+      Género: Terror<br>
+      Película favorita: Interestelar<br>
+      Película favorita de Marvel: Iron Man (Tony Stark)<br>
+      Película favorita en la infancia: Cenicienta<br>
+      Serie favorita: Pose
+    </div>
+  </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Flores favoritas</span>
+    <div class="note-content">
+      Gerberas
+    </div>
+  </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Anime</span>
+    <div class="note-content">
+      Jujutsu Kaisen<br>
+      Anohana
+    </div>
+  </div>
+  <div class="note">
+    <img class="gerbera" src="img/3.png" alt="Gerbera" onclick="toggleNote(this)">
+    <span>Comida</span>
+    <div class="note-content">
+      Le gusta el pan espejo con café y el huevo a la mexicana.<br>
+      Los hokeis también jiji
+    </div>
+  </div>
+</div>
       </div>
     </div>
     <div class="right">
@@ -231,8 +281,8 @@
       player.play();
     }
     // Notas desplegables
-    function toggleNote(note) {
-      note.classList.toggle('open');
+    function toggleNote(img) {
+      img.parentElement.classList.toggle('open');
     }
   </script>
 </body>
