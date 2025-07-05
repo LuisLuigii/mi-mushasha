@@ -217,6 +217,93 @@
   margin: 0;
   background: linear-gradient(180deg, #b3e0ff 0%, #fffbe7 100%);
 }
+
+    .envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  position: relative;
+  z-index: 10;
+}
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  perspective: 1000px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 60%;
+  background: #f7e7ce;
+  border-top-left-radius: 20px 40px;
+  border-top-right-radius: 20px 40px;
+  transform-origin: top center;
+  transition: transform 1s cubic-bezier(.77,0,.18,1);
+  z-index: 3;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(-120deg);
+}
+
+.envelope-body {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 70%;
+  background: #fffbe7;
+  border-bottom-left-radius: 20px 40px;
+  border-bottom-right-radius: 20px 40px;
+  z-index: 2;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.10);
+}
+
+.gerbera-btn {
+  position: absolute;
+  left: 50%; top: 38%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  transition: transform 0.2s;
+}
+.gerbera-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.letter {
+  position: absolute;
+  left: 50%; top: 60%;
+  transform: translate(-50%, -50%) scaleY(0);
+  width: 90%; height: 70%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 5;
+  transition: transform 1s cubic-bezier(.77,0,.18,1);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope.open .letter {
+  transform: translate(-50%, -50%) scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.letter-content {
+  padding: 24px;
+  font-family: 'Segoe Script', 'Comic Sans MS', cursive;
+  color: #7c4f1d;
+  font-size: 1.2em;
+  text-align: center;
+}
   </style>
   <!-- Fuente romántica para la carta -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -301,12 +388,40 @@
         </div>
       </div>
     </div>
-    <div class="right">
-      <div class="letter">
-       
-        
+    <div class="envelope-container">
+  <div class="envelope" id="envelope">
+    <div class="envelope-flap"></div>
+    <div class="envelope-body"></div>
+    <button class="gerbera-btn" id="gerberaBtn" aria-label="Abrir carta">
+      <!-- SVG de gerbera -->
+      <svg width="60" height="60" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="18" fill="#FF69B4" stroke="#E75480" stroke-width="4"/>
+        <circle cx="40" cy="40" r="10" fill="#FFD700"/>
+        <g>
+          <ellipse cx="40" cy="15" rx="8" ry="16" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="40" cy="65" rx="8" ry="16" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="15" cy="40" rx="16" ry="8" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="65" cy="40" rx="16" ry="8" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="22" cy="22" rx="8" ry="16" transform="rotate(-45 22 22)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="58" cy="22" rx="8" ry="16" transform="rotate(45 58 22)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="22" cy="58" rx="8" ry="16" transform="rotate(45 22 58)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          <ellipse cx="58" cy="58" rx="8" ry="16" transform="rotate(-45 58 58)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+        </g>
+      </svg>
+    </button>
+    <div class="letter" id="letter">
+      <div class="letter-content">
+        <!-- Aquí va el contenido de tu carta -->
+        <h2>Para mi amor</h2>
+        <p>
+          Eres la persona más especial de mi vida.<br>
+          Gracias por estar siempre a mi lado.<br>
+          Te amo con todo mi corazón. 💖
+        </p>
       </div>
     </div>
+  </div>
+</div>
   </div>
 
   <div class="sunflower-bg">
@@ -322,6 +437,12 @@
   <!-- Audio player oculto -->
   <audio id="audio-player" style="display:none;"></audio>
   <script>
+    const gerberaBtn = document.getElementById('gerberaBtn');
+  const envelope = document.getElementById('envelope');
+
+  gerberaBtn.addEventListener('click', function() {
+    envelope.classList.toggle('open');
+  });
     function playMusic(song) {
       var player = document.getElementById('audio-player');
       player.src = song;
