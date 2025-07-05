@@ -334,6 +334,7 @@
         <button class="music-btn" onclick="playMusic('img/EC.mp3')" title="Canción 2">💖</button>
         <button class="music-btn" onclick="playMusic('img/Inner.mp3')" title="Canción 3">🌸</button>
       </div>
+      <audio id="audio-player" style="display:none;"></audio>
       <div class="gallery">
         <div class="photo"><img src="img/mimujer1.jpeg" alt="Foto 1"></div>
         <div class="photo"><img src="img/mimujer2.jpeg" alt="Foto 2"></div>
@@ -443,8 +444,7 @@
     <div class="sunflower" style="top:20%; left:60%; animation-delay: 1.5s;"></div>
     <div class="sunflower" style="top:5%; left:40%; animation-delay: 1s;"></div>
   </div>
-  <!-- Audio player oculto -->
-  <audio id="audio-player" style="display:none;"></audio>
+  
   <script>
     const gerberaBtn = document.getElementById('gerberaBtn');
     const envelope = document.getElementById('envelope');
