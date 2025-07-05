@@ -203,6 +203,7 @@
       animation: sway 6s ease-in-out infinite alternate;
       background-repeat: no-repeat;
       background-size: contain;
+      z-index: 1;
       background-image: url('data:image/svg+xml;utf8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="18" fill="%23FFD700" stroke="%23E6B800" stroke-width="4"/><circle cx="40" cy="40" r="10" fill="%237C4F1D"/><g><ellipse cx="40" cy="15" rx="8" ry="16" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="40" cy="65" rx="8" ry="16" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="15" cy="40" rx="16" ry="8" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="65" cy="40" rx="16" ry="8" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="22" cy="22" rx="8" ry="16" transform="rotate(-45 22 22)" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="58" cy="22" rx="8" ry="16" transform="rotate(45 58 22)" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="22" cy="58" rx="8" ry="16" transform="rotate(45 22 58)" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/><ellipse cx="58" cy="58" rx="8" ry="16" transform="rotate(-45 58 58)" fill="%23FFEB3B" stroke="%23E6B800" stroke-width="2"/></g></svg>');
     }
 
@@ -210,6 +211,12 @@
       0%   { transform: translateX(0px) rotate(-5deg);}
       100% { transform: translateX(40px) rotate(5deg);}
     }
+
+    body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #b3e0ff 0%, #fffbe7 100%);
+}
   </style>
   <!-- Fuente romántica para la carta -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
