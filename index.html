@@ -287,25 +287,33 @@
     }
 
     .letter {
-      position: absolute;
-      left: 50%; top: 60%;
-      transform: translate(-50%, -50%) scaleY(0);
-      width: 90%; height: 70%;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      z-index: 5;
-      transition: transform 1s cubic-bezier(.77,0,.18,1);
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
+  position: absolute;
+  left: 50%; 
+  top: 35%; /* Más arriba */
+  transform: translate(-50%, -50%) scaleY(0);
+  width: 90%; 
+  min-height: 120px;
+  max-height: 320px; /* Ajusta según lo que necesites */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 5;
+  transition: transform 1s cubic-bezier(.77,0,.18,1), opacity 1s;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-    .envelope.open .letter {
-      transform: translate(-50%, -50%) scaleY(1);
-      opacity: 1;
-      pointer-events: auto;
-    }
+.envelope.open .letter {
+  transform: translate(-50%, -50%) scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+    
 
     .letter-content {
       padding: 24px;
