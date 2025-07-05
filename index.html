@@ -304,6 +304,12 @@
   font-size: 1.2em;
   text-align: center;
 }
+
+    .envelope.open .gerbera-btn svg {
+  filter: brightness(1.2) drop-shadow(0 0 6px #ffb6e6);
+  transform: rotate(20deg);
+  transition: filter 0.3s, transform 0.3s;
+}
   </style>
   <!-- Fuente romántica para la carta -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -389,41 +395,41 @@
       </div>
     </div>
     <div class="right">
-    <div class="envelope-container">
-  <div class="envelope" id="envelope">
-    <div class="envelope-flap"></div>
-    <div class="envelope-body"></div>
-    <button class="gerbera-btn" id="gerberaBtn" aria-label="Abrir carta">
-      <!-- SVG de gerbera -->
-      <svg width="60" height="60" viewBox="0 0 80 80">
-        <circle cx="40" cy="40" r="18" fill="#FF69B4" stroke="#E75480" stroke-width="4"/>
-        <circle cx="40" cy="40" r="10" fill="#FFD700"/>
-        <g>
-          <ellipse cx="40" cy="15" rx="8" ry="16" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="40" cy="65" rx="8" ry="16" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="15" cy="40" rx="16" ry="8" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="65" cy="40" rx="16" ry="8" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="22" cy="22" rx="8" ry="16" transform="rotate(-45 22 22)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="58" cy="22" rx="8" ry="16" transform="rotate(45 58 22)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="22" cy="58" rx="8" ry="16" transform="rotate(45 22 58)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-          <ellipse cx="58" cy="58" rx="8" ry="16" transform="rotate(-45 58 58)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
-        </g>
-      </svg>
-    </button>
-    <div class="letter" id="letter">
-      <div class="letter-content">
-        <!-- Aquí va el contenido de tu carta -->
-        <h2>Para mi amor</h2>
-        <p>
-          Eres la persona más especial de mi vida.<br>
-          Gracias por estar siempre a mi lado.<br>
-          Te amo con todo mi corazón. 💖
-        </p>
+  <div class="envelope-container">
+    <div class="envelope" id="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body"></div>
+      <button class="gerbera-btn" id="gerberaBtn" aria-label="Abrir o cerrar carta">
+        <!-- SVG de gerbera -->
+        <svg width="60" height="60" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="18" fill="#FF69B4" stroke="#E75480" stroke-width="4"/>
+          <circle cx="40" cy="40" r="10" fill="#FFD700"/>
+          <g>
+            <ellipse cx="40" cy="15" rx="8" ry="16" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="40" cy="65" rx="8" ry="16" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="15" cy="40" rx="16" ry="8" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="65" cy="40" rx="16" ry="8" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="22" cy="22" rx="8" ry="16" transform="rotate(-45 22 22)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="58" cy="22" rx="8" ry="16" transform="rotate(45 58 22)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="22" cy="58" rx="8" ry="16" transform="rotate(45 22 58)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+            <ellipse cx="58" cy="58" rx="8" ry="16" transform="rotate(-45 58 58)" fill="#FFB6C1" stroke="#E75480" stroke-width="2"/>
+          </g>
+        </svg>
+      </button>
+      <div class="letter" id="letter">
+        <div class="letter-content">
+          <!-- Aquí va el contenido de tu carta -->
+          <h2>Para mi amor</h2>
+          <p>
+            Eres la persona más especial de mi vida.<br>
+            Gracias por estar siempre a mi lado.<br>
+            Te amo con todo mi corazón. 💖
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-  </div>
     
   </div>
 
@@ -441,11 +447,11 @@
   <audio id="audio-player" style="display:none;"></audio>
   <script>
     const gerberaBtn = document.getElementById('gerberaBtn');
-  const envelope = document.getElementById('envelope');
+const envelope = document.getElementById('envelope');
 
-  gerberaBtn.addEventListener('click', function() {
-    envelope.classList.toggle('open');
-  });
+gerberaBtn.addEventListener('click', function() {
+  envelope.classList.toggle('open');
+});
     function playMusic(song) {
       var player = document.getElementById('audio-player');
       player.src = song;
