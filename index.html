@@ -453,10 +453,19 @@
       envelope.classList.toggle('open');
     });
     function playMusic(song) {
-      var player = document.getElementById('audio-player');
-      player.src = song;
-      player.play();
+  var player = document.getElementById('audio-player');
+  if (player.src.includes(song)) {
+    // Si ya está sonando esa canción, pausa/reinicia
+    if (!player.paused) {
+      player.pause();
+      player.currentTime = 0;
+      return;
     }
+  }
+  player.src = song;
+  player.currentTime = 0;
+  player.play();
+}
     function toggleNote(img) {
       img.parentElement.classList.toggle('open');
     }
